@@ -1,13 +1,50 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <meta charset="utf-8" />
+
+    <!-- FAVICONS / LOGO (usa tu dino) -->
+    <!-- Si más adelante mueves el dino a /public, cambia /about/dino-32.png por /dino-32.png -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/about/dino-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/about/dino-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/about/dino-32.png" />
+    <link rel="mask-icon" href="/favicon.svg" color="#8b5cf6" />
+
+    <!-- THEME/COLORS -->
+    <meta name="theme-color" content="#0b0f1a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+
+    <!-- VIEWPORT / SEO -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SantiTech Portfolio — Santiago Delgado</title>
+    <meta
+      name="description"
+      content="Santiago Delgado — Front-end developer. Stellar web experiences with React & Tailwind."
+    />
+
+    <!-- Open Graph / Twitter (previews cuando compartes el sitio) -->
+    <meta property="og:title" content="SantiTech Portfolio — Santiago Delgado" />
+    <meta property="og:description" content="Stellar web experiences with React & Tailwind." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="/" />
+    <!-- Si algún día tienes una imagen social: coloca /social-card.png en /public y descomenta -->
+    <!-- <meta property="og:image" content="/social-card.png" /> -->
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SantiTech Portfolio — Santiago Delgado" />
+    <meta name="twitter:description" content="Stellar web experiences with React & Tailwind." />
+    <!-- <meta name="twitter:image" content="/social-card.png" /> -->
+
+    <!-- Prevenir el flash raro de scroll suave en iOS al cargar -->
+    <style>
+      html { scroll-behavior: smooth; }
+      body { margin: 0; }
+    </style>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <noscript>Enable JavaScript to view this site.</noscript>
   </body>
 </html>

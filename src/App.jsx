@@ -1,7 +1,7 @@
 // src/App.jsx
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import StarBackground from "./components/StarBackground.jsx";
-import { Navbar } from "./components/Navbar.jsx";
+import  { Navbar }  from "./components/Navbar.jsx";
 import Home from "./pages/Home.jsx";
 import NotFound from "./pages/NotFound.jsx";
 

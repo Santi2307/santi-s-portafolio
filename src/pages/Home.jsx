@@ -7,6 +7,8 @@ import AboutSection from "../components/AboutSection.jsx";
 import SkillsSection from "../components/SkillsSection.jsx";
 import ProjectsSection from "../components/ProjectsSection.jsx";
 import { Footer } from "../components/Footer.jsx";
+import CertificatesSection from "../components/CertificatesSection.jsx";
+import Typewriter from "../components/Typewriter.jsx";
 
 
 // src/pages/Home.jsx
@@ -17,6 +19,8 @@ export default function Home() {
       <AboutSection />
       <SkillsSection />
       <ProjectsSection />
+      <CertificatesSection />
+      <Typewriter />
 
       {/* crea tus secciones con los ids que usa el menú */}
       <section id="about" className="scroll-mt-24 py-24" />

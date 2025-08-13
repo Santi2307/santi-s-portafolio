@@ -3,13 +3,13 @@ import { ExternalLink, Github } from "lucide-react";
 
 /* ==== EDITA ESTOS DATOS ==== */
 const PROJECT = {
-  title: "Orbit Analytics Dashboard",
+  title: "CryptoTracker Pro App",
   description:
-    "Interactive analytics dashboard con visualización y filtrado de datos en tiempo real.",
+    "A designed SwiftUI app for tracking top cryptocurrencies like Bitcoin, Ethereum, Solana, and more. Inspired by modern fintech apps, CryptoTracker Pro delivers an elegant, real-time-ready experience.",
   image: "/projects/orbit-dashboard.png", // coloca tu imagen en /public/projects/
-  tags: ["TypeScript", "React", "TailwindCSS", "Vite"],
+  tags: ["SwiftUI", "Xcode", "SF Symbols"],
   liveUrl: "https://tu-demo.com",          // cambia por tu demo
-  repoUrl: "https://github.com/Santi2307", // cambia por tu repo
+  repoUrl: "https://github.com/Santi2307/CryptoTracker-Pro", // cambia por tu repo
 };
 /* =========================== */
 
@@ -48,7 +48,7 @@ export default function ProjectsSection() {
             Featured <span className="text-violet-400">Projects</span>
           </h2>
           <p className="opacity-80 mt-2 max-w-2xl mx-auto">
-            One of my recent projects. Cuidado al detalle, rendimiento y experiencia de usuario.
+            One of my recent projects.
           </p>
         </div>
 
