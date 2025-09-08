@@ -2,31 +2,34 @@
 
 </p>
 <h1 align="center">
-  santidelgado.com 
+  santidelgado.com
 </h1>
-<p align="center">
+   <p align="left"> Created by: Santiago Delgado Sanchez </p>
+<p align="left">
   The first iteration of <a href="https://santidelgado.com" target="_blank">santidelgado.com</a> built with React.js leveraging Material UI.
 </p>
 
 
-## 🛠 set-up
+## 🛠 Set-Up
 
 1. Install the dependencies
 
    ```sh
-   npm install or yarn
+   npm install
    ```
 
 2. Start the development server
 
    ```sh
-   yarn run start
+   npm run dev
    ```
 
-## 🚀 build and run for production
+## 🚀 Build and Run for Production
 
 1. Generate a full static production build
 
    ```sh
    npm run build
    ```
+
+Welcome, Bienvenue, Bienvenido. 😜
