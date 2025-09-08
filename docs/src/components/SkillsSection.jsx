@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useMemo, useRef } from "react";
 import { cn } from "@/lib/utils";
 import {
   Code,
@@ -18,12 +18,16 @@ import {
   Cpu,
   ShieldCheck,
   Globe,
-  Briefcase
+  Briefcase,
+  FileText,
+  MessageCircle,
+  Globe2,
+  Figma
 } from "lucide-react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
-// Mapeo de íconos a habilidades
+// Mapeo de íconos a habilidades para una presentación visual
 const skillIcons = {
   "HTML/CSS": Palette,
   JavaScript: Code,
@@ -38,7 +42,7 @@ const skillIcons = {
   GraphQL: Code,
   "Git/GitHub": GitBranch,
   Docker: Terminal,
-  Figma: Palette,
+  Figma: Figma,
   "VS Code": Code,
   "Windows Server": ServerCog,
   Linux: Cpu,
@@ -48,11 +52,14 @@ const skillIcons = {
   Azure: Cloud,
   AWS: Cloud,
   "Bash/PowerShell": Terminal,
+  "REST APIs": Globe2,
+  "Agile Methodologies": Briefcase,
+  "Technical Documentation": FileText,
 };
 
-// Datos de habilidades, con una categoría más específica para el rol
+// Datos detallados de habilidades para tu perfil de Seneca Polytechnic
 const skillsData = [
-  // Habilidades Destacadas (nuevo filtro)
+  // Habilidades Destacadas
   { name: "HTML/CSS", level: 95, category: "Featured Skills" },
   { name: "React", level: 90, category: "Featured Skills" },
   { name: "Linux", level: 85, category: "Featured Skills" },
@@ -69,8 +76,11 @@ const skillsData = [
   { name: "Node.js", level: 80, category: "Software Development" },
   { name: "Express", level: 75, category: "Software Development" },
   { name: "MongoDB", level: 70, category: "Software Development" },
+  { name: "PostgreSQL", level: 65, category: "Software Development" },
+  { name: "GraphQL", level: 60, category: "Software Development" },
+  { name: "REST APIs", level: 85, category: "Software Development" },
 
-  // Sistemas y Redes
+  // Sistemas y Redes (Área clave para tu perfil)
   { name: "Windows Server", level: 90, category: "Systems & Networking" },
   { name: "Linux", level: 85, category: "Systems & Networking" },
   { name: "Cisco Networking", level: 75, category: "Systems & Networking" },
@@ -82,17 +92,84 @@ const skillsData = [
   { name: "Azure", level: 75, category: "Cloud" },
   { name: "AWS", level: 70, category: "Cloud" },
 
-  // Herramientas
-  { name: "Git/GitHub", level: 90, category: "Tools" },
-  { name: "Docker", level: 70, category: "Tools" },
-  { name: "Figma", level: 85, category: "Tools" },
-  { name: "VS Code", level: 95, category: "Tools" },
+  // Herramientas y Metodologías
+  { name: "Git/GitHub", level: 90, category: "Tools & Methodologies" },
+  { name: "Docker", level: 70, category: "Tools & Methodologies" },
+  { name: "Figma", level: 85, category: "Tools & Methodologies" },
+  { name: "VS Code", level: 95, category: "Tools & Methodologies" },
+  { name: "Agile Methodologies", level: 80, category: "Tools & Methodologies" },
+  { name: "Technical Documentation", level: 85, category: "Tools & Methodologies" },
 ];
 
-const categories = ["All", "Featured Skills", "Software Development", "Systems & Networking", "Cloud", "Tools"];
+const categories = ["All", "Featured Skills", "Software Development", "Systems & Networking", "Cloud", "Tools & Methodologies"];
+
+// Componente individual para la tarjeta de habilidad
+const SkillCard = ({ skill, inView, delay }) => {
+  const Icon = skillIcons[skill.name] || Laptop;
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    if (inView) {
+      const timer = setTimeout(() => setProgress(skill.level), delay + 500);
+      return () => clearTimeout(timer);
+    }
+  }, [inView, skill.level, delay]);
+
+  return (
+    <div
+      className={cn(
+        "bg-card p-6 rounded-lg shadow-xl border border-border flex flex-col items-center text-center space-y-4 cursor-pointer",
+        "card-hover transition-all duration-1000 transform",
+        inView ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+      )}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      <div className="w-28 h-28">
+        <CircularProgressbar
+          value={progress}
+          text={`${progress}%`}
+          styles={buildStyles({
+            pathColor: 'hsl(var(--primary))',
+            textColor: 'hsl(var(--foreground))',
+            trailColor: 'hsl(var(--border))',
+            strokeLinecap: 'butt',
+            pathTransitionDuration: 1.5,
+          })}
+        />
+      </div>
+      <div className="flex items-center gap-2">
+        {Icon && <Icon className="h-5 w-5 text-primary" />}
+        <h3 className="font-semibold text-lg">{skill.name}</h3>
+      </div>
+      <p className="text-muted-foreground text-sm">{skill.description}</p>
+    </div>
+  );
+};
 
 export const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState("All");
+  const [inView, setInView] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+    return () => {
+      if (sectionRef.current) {
+        observer.disconnect();
+      }
+    };
+  }, []);
 
   const filteredSkills = useMemo(() => {
     if (activeCategory === "All") {
@@ -102,7 +179,7 @@ export const SkillsSection = () => {
   }, [activeCategory]);
 
   return (
-    <section id="skills" className="py-24 px-4 relative bg-secondary/30">
+    <section id="skills" ref={sectionRef} className="py-24 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
           My <span className="bg-gradient-to-r from-indigo-600 to-violet-500 bg-clip-text text-transparent">Skills</span>
@@ -127,33 +204,10 @@ export const SkillsSection = () => {
         </div>
 
         {/* Lista de Habilidades */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in-up">
-          {filteredSkills.map((skill, index) => {
-            const Icon = skillIcons[skill.name];
-            return (
-              <div
-                key={index}
-                className="bg-card p-6 rounded-lg shadow-xs card-hover flex flex-col items-center text-center space-y-4"
-              >
-                <div className="w-28 h-28">
-                  <CircularProgressbar
-                    value={skill.level}
-                    text={`${skill.level}%`}
-                    styles={buildStyles({
-                      pathColor: 'hsl(var(--primary))',
-                      textColor: 'hsl(var(--foreground))',
-                      trailColor: 'hsl(var(--border))',
-                    })}
-                  />
-                </div>
-                <div className="flex items-center gap-2">
-                  {Icon && <Icon className="h-5 w-5 text-primary" />}
-                  <h3 className="font-semibold text-lg">{skill.name}</h3>
-                </div>
-                <p className="text-muted-foreground text-sm">{skill.description}</p>
-              </div>
-            );
-          })}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredSkills.map((skill, index) => (
+            <SkillCard key={index} skill={skill} inView={inView} delay={index * 150} />
+          ))}
         </div>
 
         {/* Mensaje si no hay habilidades */}
@@ -162,7 +216,6 @@ export const SkillsSection = () => {
             No hay habilidades en esta categoría.
           </p>
         )}
-
       </div>
     </section>
   );

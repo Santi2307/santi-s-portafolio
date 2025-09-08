@@ -36,15 +36,15 @@ const useTypingEffect = (phrases) => {
   return typedText;
 };
 
-const fullGreeting = "Hi, I'm Santiago Delgado.";
+const fullGreeting = "Hi, I'm Santiago.";
 const jobTitles = [
   "Web Developer.",
   "Systems Engineer.",
   "IT Student.",
   "Network Analyst.",
-  "Colombian in Canada",
-  "Enthusiastic",
-  "Adaptable",
+  "Colombian in Canada.",
+  "Enthusiastic.",
+  "Adaptable.",
   "Lifelong Learner.",
 ];
 

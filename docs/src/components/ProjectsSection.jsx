@@ -12,7 +12,7 @@ const allProjects = [
     category: "Full-Stack",
     tags: ["React", "Node.js", "MongoDB", "Express", "REST API"],
     demoUrl: "#", // Reemplazar con URL de demo en vivo
-    githubUrl: "#", // Reemplazar con URL de GitHub
+    githubUrl: "https://github.com/Santi2307",
     icon: Server,
   },
   {
@@ -23,7 +23,7 @@ const allProjects = [
     category: "Systems & Networking",
     tags: ["Azure", "AWS", "Terraform", "Bash", "Docker"],
     demoUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/Santi2307",
     icon: Cloud,
   },
   {
@@ -34,7 +34,7 @@ const allProjects = [
     category: "Security",
     tags: ["Python", "Cisco", "Security", "Networking"],
     demoUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/Santi2307",
     icon: Shield,
   },
   {
@@ -45,7 +45,7 @@ const allProjects = [
     category: "Data Analytics",
     tags: ["React", "D3.js", "WebSockets", "Node.js"],
     demoUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/Santi2307",
     icon: Layout,
   },
   {
@@ -56,7 +56,7 @@ const allProjects = [
     category: "Systems & Networking",
     tags: ["Bash", "Linux", "cron", "Automation"],
     demoUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/Santi2307",
     icon: Terminal,
   },
   {
@@ -67,7 +67,7 @@ const allProjects = [
     category: "Full-Stack",
     tags: ["Docker", "React", "Node.js", "Nginx"],
     demoUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/Santi2307",
     icon: Code,
   },
 ];
@@ -214,7 +214,7 @@ export const ProjectsSection = () => {
             className="cosmic-button w-fit flex items-center mx-auto gap-2"
             target="_blank"
             rel="noopener noreferrer"
-            href="https://github.com/machadop1407"
+            href="https://github.com/Santi2307"
             aria-label="Check out my GitHub profile"
           >
             Check My Github <ArrowRight size={16} />
