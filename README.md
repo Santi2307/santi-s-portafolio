@@ -2,7 +2,7 @@
  
 </p>
 <h1 align="center">
-  santidelgado.com - v1
+  My Portafolio - The creativity at the maximum level. I hope you take a look to it <3.
 </h1>
 <p align="center">
   The first iteration of <a href="https://santidelgado.com" target="_blank">santidelgado.com</a> built with React.js leveraging Material UI.
