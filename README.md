@@ -2,10 +2,10 @@
  
 </p>
 <h1 align="center">
-  My Portafolio - The creativity at the maximum level. I hope you take a look to it <3.
+  👨‍💻 My Portafolio - The creativity at the maximum level. I hope you take a look to it <3 👨‍💻.
 </h1>
    <p align="left"> Created by: Santiago Delgado Sanchez </p>
-<p align="center">
+<p align="left">
   The first iteration of <a href="https://santidelgado.com" target="_blank">santidelgado.com</a> built with React.js leveraging Material UI.
 </p>
 
@@ -15,13 +15,13 @@
 1. Install the dependencies
 
    ```sh
-   npm install or yarn
+   npm install
    ```
 
 2. Start the development server
 
    ```sh
-   yarn run start
+   npm run dev
    ```
 
 ## 🚀 Build and Run for Production
@@ -31,3 +31,5 @@
    ```sh
    npm run build
    ```
+
+Welcome, Bienvenue, Bienvenido. 😜
