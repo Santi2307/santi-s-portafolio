@@ -9,7 +9,7 @@
 </p>
 
 
-## 🛠 set-up
+## 🛠 Set-Up
 
 1. Install the dependencies
 
@@ -23,7 +23,7 @@
    yarn run start
    ```
 
-## 🚀 build and run for production
+## 🚀 Build and Run for Production
 
 1. Generate a full static production build
 
